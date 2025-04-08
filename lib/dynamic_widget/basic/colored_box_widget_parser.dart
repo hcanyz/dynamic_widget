@@ -43,6 +43,7 @@ class ColoredBoxWidgetParser extends WidgetParser {
     return <String, dynamic>{
       "type": widgetName,
       "color": realWidget.color.toARGB32().toRadixString(16),
+      "child": DynamicWidgetBuilder.export(realWidget.child, buildContext)
     };
   }
 

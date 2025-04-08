@@ -35,7 +35,11 @@ class RepaintBoundaryWidgetParser extends WidgetParser {
 
   @override
   Map<String, dynamic> export(Widget? widget, BuildContext? buildContext) {
-    return <String, dynamic>{"type": widgetName};
+    var realWidget = widget as RepaintBoundary;
+    return <String, dynamic>{
+      "type": widgetName,
+      "child": DynamicWidgetBuilder.export(realWidget.child, buildContext)
+    };
   }
 
   @override
